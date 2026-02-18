@@ -6,4 +6,8 @@
     <color name="blue">#5D9CEC</color>
     <color name="dark_bg">#060E1E</color>
     <color name="gray">#C8C9CB</color>
+    <color name="gray_with_opacity60">#9CA9A9A9</color>
+    <color name="gray_with_opacity90">#E8CDCACA</color>
+    <!--                                 RGBA        -->
+    <!--                                 ARGB            -->
 </resources>

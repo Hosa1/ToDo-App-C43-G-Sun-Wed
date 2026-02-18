@@ -4,10 +4,37 @@
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorSecondary">@color/dark_bg</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
     </style>
-
     <style name="ShapeAppearanceOverlay.MyApp.Button.Rounded" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Background">
+        <item name="android:background">@color/dark_bg</item>
+    </style>
+
+    <style name="BottomSheetBackground">
+        <item name="android:background">@color/dark_bg</item>
+    </style>
+
+    <style name="TitleTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DateStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:textColorHint">@color/gray_with_opacity90</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>
