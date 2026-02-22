@@ -11,6 +11,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.route.todoappc43gsunwed.R
+import com.route.todoappc43gsunwed.callbacks.OnTaskAddedListener
 import com.route.todoappc43gsunwed.database.Task
 import com.route.todoappc43gsunwed.database.TaskDatabase
 import com.route.todoappc43gsunwed.databinding.FragmentAddTaskBinding
@@ -19,6 +20,7 @@ import java.util.Calendar
 class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentAddTaskBinding
     private lateinit var calendar: Calendar
+    var onTaskAddedListener: OnTaskAddedListener? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,6 +46,7 @@ class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
                     date = calendar.time,
                 )
                 TaskDatabase.getInstance(requireContext()).getTaskDao().insertTask(task)
+                onTaskAddedListener?.onTaskAdded()
                 dismiss()
             }
         }
@@ -58,7 +61,11 @@ class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
             }
         }
         val timePicker = TimePickerDialog(
-            requireContext(), onTimeSet, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(
+            requireContext(),
+            R.style.CustomTimePickerDialogTheme,
+            onTimeSet,
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(
                 Calendar.MINUTE
             ),
             false
@@ -83,9 +90,14 @@ class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
         }
         val datePicker =
             DatePickerDialog(
-                requireContext(), onDateSet, calendar.get(Calendar.YEAR), calendar.get(
+                requireContext(),
+                R.style.CustomDatePickerDialog,
+                onDateSet,
+                calendar.get(Calendar.YEAR),
+                calendar.get(
                     Calendar.MONTH
-                ), calendar.get(Calendar.DAY_OF_MONTH)
+                ),
+                calendar.get(Calendar.DAY_OF_MONTH)
             )
         datePicker.show()
     }

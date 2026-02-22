@@ -3,10 +3,42 @@
     <style name="Base.Theme.ToDoAppC43GSunWed" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/blue</item>
-        <item name="colorSecondary">@color/dark_bg</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
+        <item name="colorAccent">@color/white</item>
     </style>
+
+    <style name="CustomDatePickerDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Main accent color (header, selected day, OK button) -->
+        <item name="colorAccent">@color/white</item>           <!-- pink example -->
+        <!-- Header background -->
+        <item name="colorPrimary">@color/white</item>           <!-- indigo -->
+        <!-- Text on header / selected elements -->
+        <item name="android:textColorPrimaryInverse">@color/dark_bg</item>
+        <!-- Normal days text, dialog background -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/dark_bg</item>
+    </style>
+
+    <style name="CustomTimePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Header background -->
+        <item name="android:headerBackground">@color/black</item>
+
+        <!-- Header text / selected time -->
+        <item name="android:textColorPrimaryInverse">@color/dark_bg</item>
+
+        <!-- Clock numbers / hand / accent color -->
+        <item name="colorAccent">@color/black</item>
+        <item name="colorControlActivated">@color/white</item>
+
+        <!-- Buttons text color -->
+        <item name="colorPrimary">@color/dark_bg</item>
+
+        <!-- Often helps with numbers/hand -->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
     <style name="ShapeAppearanceOverlay.MyApp.Button.Rounded" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -14,6 +46,10 @@
 
     <style name="Background">
         <item name="android:background">@color/dark_bg</item>
+    </style>
+
+    <style name="cardBackgroundColor">
+        <item name="cardBackgroundColor">@color/black2</item>
     </style>
 
     <style name="BottomSheetBackground">
@@ -36,5 +72,17 @@
         <item name="android:textColorHint">@color/gray_with_opacity90</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ToolbarTitleStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/dark_bg</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WeeKCalendarTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

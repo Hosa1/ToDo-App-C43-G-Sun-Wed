@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/cardBackgroundColor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="30dp"
+    android:layout_marginVertical="22dp"
+    app:cardCornerRadius="16dp"
+    app:contentPadding="28dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/task_status"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+            android:background="@color/blue"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/task_title"
+            style="@style/ToolbarTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toEndOf="@id/task_status"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Play basketball" />
+
+        <ImageView
+            android:id="@+id/clock_image"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="@id/task_date"
+            app:layout_constraintEnd_toStartOf="@id/task_date"
+            app:layout_constraintStart_toEndOf="@id/task_status"
+            app:layout_constraintTop_toTopOf="@id/task_date" />
+
+        <TextView
+            android:id="@+id/task_date"
+            style="@style/DateStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/clock_image"
+            app:layout_constraintTop_toBottomOf="@id/task_title"
+            tools:text="10:30AM" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

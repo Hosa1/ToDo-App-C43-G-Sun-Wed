@@ -14,4 +14,5 @@
     <string name="task_desc_is_required">Task description is required.</string>
     <string name="task_title_is_short">Task Title is short</string>
     <string name="please_select_date">Please select date</string>
+    <string name="to_do_list">To Do List</string>
 </resources>

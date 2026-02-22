@@ -8,13 +8,14 @@ import androidx.room.TypeConverters
 import com.route.todoappc43gsunwed.database.dao.TaskDao
 import com.route.todoappc43gsunwed.database.typeConverter.TaskDateConverter
 
-@Database(version = 1, entities = [Task::class])
+@Database(version = 1, entities = [Task::class], exportSchema = false)
 @TypeConverters(TaskDateConverter::class)
 abstract class TaskDatabase : RoomDatabase() {
     abstract fun getTaskDao(): TaskDao
 
     //       Software Development -> Problems
     //                                        Solutions
+    //   Task   -   Employee
     //   Creational Design Patterns
     companion object {
         private val databaseName = "TaskDatabase"

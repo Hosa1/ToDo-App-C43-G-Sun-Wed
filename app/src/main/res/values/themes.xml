@@ -5,7 +5,39 @@
         <item name="colorPrimary">@color/blue</item>
         <item name="colorSecondary">@color/mint</item>
         <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
 
+    <style name="CustomDatePickerDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Main accent color (header, selected day, OK button) -->
+        <item name="colorAccent">@color/blue</item>           <!-- pink example -->
+
+        <!-- Header background -->
+        <item name="colorPrimary">@color/blue</item>           <!-- indigo -->
+        <!-- Text on header / selected elements -->
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+
+        <!-- Normal days text, dialog background -->
+        <item name="android:textColorPrimary">@color/gray</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="CustomTimePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Header background -->
+        <item name="android:headerBackground">@color/white</item>
+
+        <!-- Header text / selected time -->
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+
+        <!-- Clock numbers / hand / accent color -->
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorControlActivated">@color/blue</item>
+
+        <!-- Buttons text color -->
+        <item name="colorPrimary">@color/blue</item>
+
+        <!-- Often helps with numbers/hand -->
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
     <style name="Theme.ToDoAppC43GSunWed" parent="Base.Theme.ToDoAppC43GSunWed" />
@@ -17,6 +49,10 @@
 
     <style name="Background">
         <item name="android:background">@color/mint</item>
+    </style>
+
+    <style name="cardBackgroundColor">
+        <item name="cardBackgroundColor">@color/white</item>
     </style>
 
     <style name="BottomSheetBackground">
@@ -39,5 +75,17 @@
         <item name="android:textColorHint">@color/gray_with_opacity60</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ToolbarTitleStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WeeKCalendarTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
