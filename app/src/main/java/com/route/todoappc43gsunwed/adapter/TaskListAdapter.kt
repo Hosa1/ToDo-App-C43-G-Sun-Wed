@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.route.todoappc43gsunwed.database.Task
 import com.route.todoappc43gsunwed.databinding.ItemTaskBinding
 
-class TaskListAdapter(val tasks: List<Task>? = null) :
+class TaskListAdapter(var tasks: List<Task>? = null) :
     RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
+    // 1
+    var onTaskClickListener: ((Task) -> Unit)? = null
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -23,6 +25,10 @@ class TaskListAdapter(val tasks: List<Task>? = null) :
         position: Int
     ) {
         val task = tasks?.get(position) ?: return
+        holder.binding.root.setOnClickListener {
+            // 2-
+            onTaskClickListener?.invoke(task)
+        }
         holder.bind(task)
     }
 
@@ -30,6 +36,10 @@ class TaskListAdapter(val tasks: List<Task>? = null) :
         return tasks?.size ?: 0
     }
 
+    fun updateTasks(tasks: List<Task>?) {
+        this.tasks = tasks
+        notifyDataSetChanged()
+    }
 
     class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task?) {

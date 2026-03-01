@@ -23,6 +23,8 @@ interface TaskDao { //        Room
     @Query("SELECT * FROM Task")
     fun getAllTasks(): List<Task>
 
-    @Query("SELECT * FROM Task WHERE date = :date")
-    fun getTasksByDate(date: Date): List<Task>
+    @Query("SELECT * FROM Task WHERE date between :startDate AND :endDate")
+    fun getTasksByDate(startDate: Date, endDate: Date): List<Task>
+    //  1771627643968
+    //  1771627643979
 }
