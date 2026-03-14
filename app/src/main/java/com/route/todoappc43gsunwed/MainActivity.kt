@@ -2,6 +2,7 @@ package com.route.todoappc43gsunwed
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.route.todoappc43gsunwed.callbacks.OnTaskAddedListener
 import com.route.todoappc43gsunwed.databinding.ActivityMainBinding
@@ -15,7 +16,7 @@ import java.util.Calendar
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding // null
+    lateinit var binding: ActivityMainBinding // null
     private val taskListFragment = TaskListFragment()
     private val settingsFragment = SettingsFragment()
     private val calendar = Calendar.getInstance()
@@ -72,4 +73,5 @@ class MainActivity : AppCompatActivity() {
             .replace(binding.taskFragmentContainer.id, fragment)
             .commit()
     }
+
 }

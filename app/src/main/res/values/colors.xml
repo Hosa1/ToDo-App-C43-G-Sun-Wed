@@ -9,6 +9,5 @@
     <color name="gray">#C8C9CB</color>
     <color name="gray_with_opacity60">#9CA9A9A9</color>
     <color name="gray_with_opacity90">#E8CDCACA</color>
-    <!--                                 RGBA        -->
-    <!--                                 ARGB            -->
+    <color name="transparent">#00000000</color>
 </resources>

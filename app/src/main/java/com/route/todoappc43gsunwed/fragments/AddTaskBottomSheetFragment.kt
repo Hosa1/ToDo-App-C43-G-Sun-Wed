@@ -42,8 +42,9 @@ class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
         binding.saveButton.setOnClickListener {
             if (validateFields()) {
                 val task = Task(
-                    title = binding.titleEditText.text.toString(),
+                    title = binding.etTitleAddBottomSheet.text.toString(),
                     date = calendar.time,
+                    description = binding.descriptionEditText.text.toString()
                 )
                 TaskDatabase.getInstance(requireContext()).getTaskDao().insertTask(task)
                 onTaskAddedListener?.onTaskAdded()
@@ -103,20 +104,20 @@ class AddTaskBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun validateFields(): Boolean {
-        val title = binding.titleEditText.text.toString()
+        val title = binding.etTitleAddBottomSheet.text.toString()
         val description = binding.descriptionEditText.text.toString()
         val dateHint = getString(R.string.date_hint)
         val timeHint = getString(R.string.time_hint)
         if (title.isEmpty() || title.isBlank()) {
-            binding.titleEditText.error = getString(R.string.task_title_is_required)
+            binding.etTitleAddBottomSheet.error = getString(R.string.task_title_is_required)
             return false
         } else
             binding.descriptionEditText.error = null
         if (title.length < 5) {
-            binding.titleEditText.error = getString(R.string.task_title_is_short)
+            binding.etTitleAddBottomSheet.error = getString(R.string.task_title_is_short)
             return false
         } else
-            binding.titleEditText.error = null
+            binding.etTitleAddBottomSheet.error = null
 
         if (description.isEmpty() || description.isBlank()) {
             binding.descriptionEditText.error = getString(R.string.task_desc_is_required)

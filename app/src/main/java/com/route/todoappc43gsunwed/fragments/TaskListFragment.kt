@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.kizitonwose.calendar.core.WeekDay
 import com.kizitonwose.calendar.core.atStartOfMonth
 import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
 import com.kizitonwose.calendar.view.WeekDayBinder
+import com.route.todoappc43gsunwed.MainActivity
 import com.route.todoappc43gsunwed.R
 import com.route.todoappc43gsunwed.adapter.ItemDayViewContainer
 import com.route.todoappc43gsunwed.adapter.TaskListAdapter
@@ -28,8 +31,12 @@ import java.time.format.TextStyle
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import kotlin.jvm.java
 
 class TaskListFragment : Fragment() {
+    companion object{
+        const val KEY_OF_TASK = "TaskListFragment"
+    }
     private lateinit var binding: FragmentTaskListBinding
     private val adapter = TaskListAdapter()
     private val calendar = Calendar.getInstance()
@@ -45,13 +52,23 @@ class TaskListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showViews()
         binding.tasksRecyclerView.adapter = adapter
         getAllTasks()
         initCalendarView()
         adapter.onTaskClickListener = {
-            Toast.makeText(requireContext(), it.title ?: "", Toast.LENGTH_SHORT).show()
-        }
+            parentFragmentManager.beginTransaction().replace(R.id.task_fragment_container,
+                EditTaskFragment::class.java, Bundle().apply {
+                    putSerializable(KEY_OF_TASK, it)
+                }, "EditTaskFragment")
+                .addToBackStack(null).commit() } }
+
+    private fun showViews() {
+        (activity as MainActivity).binding.addFab.isVisible = true
+        (activity as MainActivity).binding.todoBottomAppBar.isVisible = true
+        (activity as MainActivity).binding.bottomAppBar.isVisible = true
     }
+
 
     fun initCalendarView() {
         binding.weekCalendarView.dayBinder = object : WeekDayBinder<ItemDayViewContainer> {
@@ -137,6 +154,10 @@ class TaskListFragment : Fragment() {
             TaskDatabase.getInstance(requireContext().applicationContext).getTaskDao()
                 .getTasksByDate(startDate, endDate)
         adapter.updateTasks(tasks)
+    }
+
+    fun openEditTaskFragment() {
+
     }
 
     fun getAllTasks() {

@@ -19,7 +19,6 @@
             android:layout_width="3dp"
             android:layout_height="0dp"
             android:background="@color/blue"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +33,18 @@
             app:layout_constraintStart_toEndOf="@id/task_status"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Play basketball" />
+
+        <TextView
+            android:id="@+id/task_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/task_status"
+            app:layout_constraintTop_toBottomOf="@id/task_title"
+            tools:hint="Description" />
 
         <ImageView
             android:id="@+id/clock_image"
@@ -51,10 +62,10 @@
             style="@style/DateStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
+            android:layout_marginTop="5dp"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/clock_image"
-            app:layout_constraintTop_toBottomOf="@id/task_title"
+            app:layout_constraintTop_toBottomOf="@id/task_description"
             tools:text="10:30AM" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

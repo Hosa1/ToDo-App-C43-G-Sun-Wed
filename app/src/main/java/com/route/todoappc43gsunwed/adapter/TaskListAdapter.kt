@@ -40,11 +40,11 @@ class TaskListAdapter(var tasks: List<Task>? = null) :
         this.tasks = tasks
         notifyDataSetChanged()
     }
-
     class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task?) {
             binding.taskTitle.text = task?.title
             binding.taskDate.text = task?.date?.toString()
+            binding.taskDescription.text = task?.description
         }
     }
 }
